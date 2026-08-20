@@ -23,10 +23,9 @@ from typing import List
 Return the length of the longest strictly increasing subsequence.
 """
 def length_of_lis(nums: List[int]) -> int:
-    from typing import List
+    if not nums:
+        return 0
 
-
-def length_of_lis(nums: List[int]) -> int:
     notes = [1] * len(nums)
 
     for current in range(len(nums)):
@@ -36,3 +35,5 @@ def length_of_lis(nums: List[int]) -> int:
                     notes[current],
                     notes[previous] + 1,
                 )
+
+    return max(notes)
